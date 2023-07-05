@@ -1,0 +1,41 @@
+.container{
+    font-family: "Century Gothic";
+    color: #399279;
+    margin: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.links-set{
+    display: flex;
+    flex-direction: column;
+}
+.link{
+    margin-top: 15px;
+    text-decoration: none;
+    color: #8aa8bc;
+}
+.link:hover{
+    transition: 0.2s;
+    color:#399279;
+}
+.underline-animation{
+    position: relative;
+    display: inline-block;
+}
+.underline-animation:after{
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #399279;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+.underline-animation:hover::after{
+    width: 100%; 
+    left: 0; 
+}

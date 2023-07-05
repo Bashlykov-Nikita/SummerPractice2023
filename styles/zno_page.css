@@ -1,0 +1,197 @@
+body{
+    background-color: #ebe8e6;
+    display: flex;
+    justify-content: center;
+    font-family: "Century Gothic";
+}
+.container{
+    width: 125vh;
+    height: 100%;
+    min-width: none;
+    background-color: #fff;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 10px;
+}
+.link_h1{
+    text-decoration: none;
+    color: #399279;
+    font-size: 1.97rem;
+}
+.link_h1:hover{
+    text-decoration: underline dotted #ebe8e6;
+
+}
+.link_h2{
+    text-decoration: none;
+    color: #181324;
+}
+.link_h2:hover{
+    text-decoration: underline dotted #ebe8e6;
+}
+.breadcrumb{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: #f5f3f2;
+    padding-left: 10px;
+}
+.breadcrumb-link{
+    text-decoration: none;
+    color: #434346;
+}
+.breadcrumb-link:hover{
+    text-decoration: underline dotted #ebe8e6;
+    color: #399279;
+}
+.breadcrumb-p{
+    color: #434346;
+}
+.main-content{
+    width: 66%;
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.tasks{
+    
+    border-top: 1px solid #ebe8e6;
+}
+.tasks-buttons{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.task-span{
+    display: block;
+    float: left;
+    width: 27px;
+    height: 27px;
+    line-height: 26px;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #41a88a;
+    text-align: center;
+    margin-right: 9px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.task-span:hover{
+    transition: 0.2s;
+    background-color: #ebe8e6;
+}
+.task-card{
+    display: inline-block;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    position: relative;
+    border-top: 1px solid #ebe8e6;
+    padding: 17px 0 15px 0;
+}
+.counter{
+    position: absolute;
+    right: 15px;
+    top: -17px;
+    display: block;
+    padding: 0 10px;
+    line-height: 30px;
+    border: 1px solid #41a88a;
+    background: #fff;
+}
+.task-img img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    width: 600px;
+    margin-bottom: 15px;
+}
+.p-margin{
+    margin-bottom: 5px;
+}
+tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr{
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.q-radio {
+    position: absolute;
+    margin-left: -2000px;
+}
+.marker{
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    background-repeat: no-repeat;
+    margin: 0 2px 2px 0;
+    background-image: url(https://zno.osvita.ua/doc/i/marker-x.png);
+    background-position: 0 -40px;
+    cursor: pointer;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.answer-button{
+    width: 170px;
+    text-align: center;
+
+    cursor: pointer;
+
+    background-color: #41a88a;
+    padding: 10px 12px;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.answer-button:hover{
+    transition: 0.2s;
+    background-color: #51aa91;
+}
+.quit-button{
+    width: 170px;
+    text-align: center;
+
+    cursor: pointer;
+
+    background-color: #d02537;
+    padding: 10px 12px;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.quit-button:hover{
+    transition: 0.2s;
+    background-color: #d13d4c;
+}
+.activeTask{
+    background-color: #c0e1d7;
+}
