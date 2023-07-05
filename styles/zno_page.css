@@ -138,15 +138,36 @@ td {
     display: inline-block;
     width: 27px;
     height: 27px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border: none;
-    background-repeat: no-repeat;
     margin: 0 2px 2px 0;
+    border: none;
+    /* border: 1px solid #c5c4c3; */
+    background-repeat: no-repeat;
     background-image: url(https://zno.osvita.ua/doc/i/marker-x.png);
-    background-position: 0 -40px;
-    cursor: pointer;
+    background-position: 0 -40px; 
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;   
 }
+.activeMarker{
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+    margin: 0 2px 2px 0;
+    border: none;
+    /* border: 1px solid #c5c4c3; */
+    background-repeat: no-repeat;
+    background-image: url(https://zno.osvita.ua/doc/i/marker-x.png);
+    background-position: -40px 0px; 
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer; 
+}
+.marker:hover{
+    background-position: 0 0px;
+    background-image: url(https://zno.osvita.ua/doc/i/marker-x.png);
+
+}
+
 .buttons{
     display: flex;
     justify-content: space-between;
