@@ -116,6 +116,11 @@ body{
 .p-margin{
     margin-bottom: 5px;
 }
+table{
+    border-collapse: separate;
+    text-indent: initial;
+    border-spacing: 2px;
+}
 tbody{
     display: table-row-group;
     vertical-align: middle;
@@ -215,4 +220,10 @@ td {
 }
 .activeTask{
     background-color: #c0e1d7;
+}
+.alreadyAnswered{
+    background-color: #f5f3f2;
+}
+.displayNone{
+    display: none;
 }
