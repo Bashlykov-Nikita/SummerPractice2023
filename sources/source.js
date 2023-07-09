@@ -13,13 +13,13 @@ const fictionRows = Array.from(document.getElementsByClassName("fictionRow"))
 const firstRow = document.getElementById('firstRow')
 const arrOfAnswers21_24 = []
 
-let taskTypeSwitch = (taskId) => {
-    if(taskId < 21){
-        return(0)
-    }else if(taskId < 25){
-        return(1)
-    }else{
-        return(2)
+const taskTypeSwitch = (taskId) => {
+    if (taskId < 21) {
+        return (0)
+    } else if (taskId < 25) {
+        return (1)
+    } else {
+        return (2)
     }
 }
 const arrayOfActiveTasks = ['1']
@@ -75,27 +75,29 @@ function taskListener(currentTask, mark) {
         arrayOfActiveTasks[arrayOfActiveTasks.indexOf(currentTask.id)] = currentTask.id
         // Put marks down if task was answered previously
         if (arrayOfActiveMarkers[currentTask.id - 1]) {
-            if (currentTask.id < 21) {
-                console.log(currentTask.id - 1)
-                console.log(arrayOfActiveMarkers[currentTask.id - 1])
-
-                arrayOfActiveMarkers[currentTask.id - 1].classList.add("activeMarker")
-            } else {
-                console.log(currentTask.id - 1)
-                console.log(arrayOfActiveMarkers[currentTask.id - 1])
-                arrayOfActiveMarkers[currentTask.id - 1].forEach(row => {
-                    if (row) {
-                        row.classList.add("activeMarker")
-                    }
-                })
+            switch (taskTypeSwitch(currentTask.id)) {
+                case 0:
+                    console.log(currentTask.id - 1)
+                    console.log(arrayOfActiveMarkers[currentTask.id - 1])
+                    arrayOfActiveMarkers[currentTask.id - 1].classList.add("activeMarker")
+                    break
+                case 1:
+                    console.log(currentTask.id - 1)
+                    console.log(arrayOfActiveMarkers[currentTask.id - 1])
+                    arrayOfActiveMarkers[currentTask.id - 1].forEach(row => {
+                        if (row) {
+                            row.classList.add("activeMarker")
+                        }
+                    })
+                    break
+                case 2:
+                    console.log('not made yet')
+                    break
             }
         }
         // if it's a new task 
     } else {
         arrayOfActiveTasks.push(currentTask.id)
-        // if (mark) {
-        //     mark.classList.remove("activeMarker")
-        // }
     }
 }
 
@@ -108,17 +110,21 @@ function changingMark(marksArray, mark) {
     })
     mark.classList.add("activeMarker")
     activeMarker[0] = mark
-
     markListener(mark, activeTask[0])
-
-
+    //TODO: button function here
     greenButton.innerHTML = "Відповісти"
     redButton.innerHTML = "Завершити тест"
-    if (activeTask[0].id < 21) {
-        console.log(arrayOfActiveMarkers)
-    } else {
-        console.log(arrayOfActiveMarkers[activeTask[0].id - 1])
-        console.log(arrayOfActiveMarkers)
+    switch (taskTypeSwitch(activeTask[0].id)) {
+        case 0:
+            console.log(arrayOfActiveMarkers)
+            break
+        case 1:
+            console.log(arrayOfActiveMarkers[activeTask[0].id - 1])
+            console.log(arrayOfActiveMarkers)
+            break
+        case 2:
+            console.log('not made yet')
+            break
     }
 }
 
@@ -135,25 +141,29 @@ markersByRows.forEach(row => {
 
 function markListener(currentMarker, activeTask) {
     //TODO: Change the way how markers works in tasks 21-25
-    if (activeTask.id < 21) {
-        arrayOfActiveMarkers[activeTask.id - 1] = currentMarker
-        taskSpan[activeTask.id - 1].classList.add("alreadyAnswered")
-
-    } else {
-        if (currentMarker.classList.contains('row1')) {
-            arrOfAnswers21_24[0] = currentMarker
-        } else if (currentMarker.classList.contains('row2')) {
-            arrOfAnswers21_24[1] = currentMarker
-        } else if (currentMarker.classList.contains('row3')) {
-            arrOfAnswers21_24[2] = currentMarker
-        } else if (currentMarker.classList.contains('row4')) {
-            arrOfAnswers21_24[3] = currentMarker
-        }
-        let buf = [...arrOfAnswers21_24]
-        arrayOfActiveMarkers[activeTask.id - 1] = buf 
-        taskSpan[activeTask.id - 1].classList.add("alreadyAnswered")
+    switch (taskTypeSwitch(activeTask.id)) {
+        case 0:
+            arrayOfActiveMarkers[activeTask.id - 1] = currentMarker
+            taskSpan[activeTask.id - 1].classList.add("alreadyAnswered")
+            break
+        case 1:
+            if (currentMarker.classList.contains('row1')) {
+                arrOfAnswers21_24[0] = currentMarker
+            } else if (currentMarker.classList.contains('row2')) {
+                arrOfAnswers21_24[1] = currentMarker
+            } else if (currentMarker.classList.contains('row3')) {
+                arrOfAnswers21_24[2] = currentMarker
+            } else if (currentMarker.classList.contains('row4')) {
+                arrOfAnswers21_24[3] = currentMarker
+            }
+            let buf = [...arrOfAnswers21_24]
+            arrayOfActiveMarkers[activeTask.id - 1] = buf
+            taskSpan[activeTask.id - 1].classList.add("alreadyAnswered")
+            break
+        case 2:
+            console.log('not made yet')
+            break
     }
-
 }
 
 //Changes buttons inner text if answered is marked
@@ -174,19 +184,25 @@ function nextButton(button) {
 }
 nextButton(greenButton)
 function showAnswerRows(currentTaskId) {
-    if (currentTaskId > 20 && currentTaskId < 25) {
-        rows.forEach(row => {
-            row.classList.remove("displayNone")
-        })
-        fictionRows.forEach(frow => {
-            frow.classList.remove("displayNone")
-        })
-    } else {
-        for (let i = 1; i < rows.length; i++) {
-            rows[i].classList.add("displayNone")
-        }
-        fictionRows.forEach(frow => {
-            frow.classList.add("displayNone")
-        })
+    switch (taskTypeSwitch(currentTaskId)) {
+        case 0:
+            for (let i = 1; i < rows.length; i++) {
+                rows[i].classList.add("displayNone")
+            }
+            fictionRows.forEach(frow => {
+                frow.classList.add("displayNone")
+            })
+            break
+        case 1:
+            rows.forEach(row => {
+                row.classList.remove("displayNone")
+            })
+            fictionRows.forEach(frow => {
+                frow.classList.remove("displayNone")
+            })
+            break
+        case 2:
+            console.log('not made yet')
+            break
     }
 }  
