@@ -227,3 +227,14 @@ td {
 .displayNone{
     display: none;
 }
+.inptext{
+    border: solid 1px #ccc;
+    font-size: 18px;
+    padding: 5px;
+    margin-bottom: 15px;
+    width: 151px;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
