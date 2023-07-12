@@ -17,11 +17,18 @@ const inputText = Array.from(document.getElementsByClassName("inptext"))
 const firstTextInputfield = Array.from(document.getElementsByClassName("firstTextInputfield"))[0]
 const secendTextInputfield = Array.from(document.getElementsByClassName("secendTextInputfield"))[0]
 const displayNone27_30 = Array.from(document.getElementsByClassName("displayNone27-30"))
-//
+const lastTasksDescriptions = Array.from(document.getElementsByClassName("description"))[0]
+const markDownAnswersP = Array.from(document.getElementsByClassName("p-margin"))[0]
+const resaultInfoShow = Array.from(document.getElementsByClassName("blue-block-test-results"))[0]
+const taskCard = Array.from(document.getElementsByClassName("task-card"))[0]
+const testBal = Array.from(document.getElementsByClassName("test-bal"))[0]
+const raitName = Array.from(document.getElementsByClassName("reit-name"))[0]
+
+
 const arrOfAnswers21_24 = []
 const arrOfAnswers25_26 = []
 
-let checkArrayfor1_20 = []
+let checkArray = []
 
 const taskTypeSwitch = (taskId) => {
     if (taskId < 21) {
@@ -32,6 +39,8 @@ const taskTypeSwitch = (taskId) => {
         return (2)
     } else if (taskId < 31) {
         return (3)
+    } else {
+        return (4)
     }
 }
 const arrayOfActiveTasks = ['1']
@@ -62,9 +71,9 @@ function changingTask(someTask) {
     buttons(someTask.id, arrayOfActiveMarkers)
 }
 function changeTaskImg(task) {
-    for (let i = 0; i < ZNO2019.length; i++) {
-        if (ZNO2019[i].id == task.id) {
-            return (ZNO2019[i].task)
+    for (let i = 0; i < ZNODATA.length; i++) {
+        if (ZNODATA[i].id == task.id) {
+            return (ZNODATA[i].task)
         }
     }
 }
@@ -126,23 +135,22 @@ function taskListener(currentTask, mark) {
         }
         // if it's a new task 
     } else {
-
+        inputText.forEach(field => {
+            if (field.value) {
+                field.value = ''
+            }
+            if (field.placeholder) {
+                field.value = ''
+            }
+        })
         arrayOfActiveTasks.push(currentTask.id)
-        if (currentTask.id > 24) { 
-            console.log(`Current task id is ${currentTask.id }`)
-            inputText.forEach(field => {
-                field.addEventListener('input', () => {       
-                    inputs25_26(arrayOfActiveMarkers, currentTask.id)
-                })
+        if (currentTask.id > 24) {
+            Array.from(document.getElementsByClassName('answer'))[0].addEventListener('input', () => {
+                console.log(`Current task id is ${currentTask.id}`)
+                inputs25_26(arrayOfActiveMarkers, currentTask.id)
             })
-            inputText.forEach(field => {
-                if (field.value) {
-                    field.value = ''
-                }
-                if (field.placeholder) {
-                    field.value = ''
-                }
-            })
+
+
         }
     }
 }
@@ -214,7 +222,7 @@ function markListener(currentMarker, activeTask) {
 
 
 function inputs25_26(arrOfAnswers, currentTaskId) {
-    
+
 
     console.log(arrOfAnswers25_26)
     console.log(currentTaskId)
@@ -241,6 +249,8 @@ function inputs25_26(arrOfAnswers, currentTaskId) {
 function showAnswerRows(currentTaskId) {
     switch (taskTypeSwitch(currentTaskId)) {
         case 0:
+            markDownAnswersP.classList.remove("displayNone")
+            lastTasksDescriptions.classList.add("displayNone")
             taskAnswerText.classList.add("displayNone")
             taskAnswerMarkers.classList.remove("displayNone")
             for (let i = 1; i < rows.length; i++) {
@@ -251,6 +261,8 @@ function showAnswerRows(currentTaskId) {
             })
             break
         case 1:
+            markDownAnswersP.classList.remove("displayNone")
+            lastTasksDescriptions.classList.add("displayNone")
             taskAnswerText.classList.add("displayNone")
             taskAnswerMarkers.classList.remove("displayNone")
             rows.forEach(row => {
@@ -261,17 +273,27 @@ function showAnswerRows(currentTaskId) {
             })
             break
         case 2:
+            markDownAnswersP.classList.remove("displayNone")
+            lastTasksDescriptions.classList.add("displayNone")
             displayNone27_30.forEach(el => el.classList.remove("displayNone"))
             taskAnswerMarkers.classList.add("displayNone")
             taskAnswerText.classList.remove("displayNone")
             // inputs25_26(arrayOfActiveMarkers, currentTaskId)
             break
         case 3:
+            markDownAnswersP.classList.remove("displayNone")
+            lastTasksDescriptions.classList.add("displayNone")
             taskAnswerMarkers.classList.add("displayNone")
             taskAnswerText.classList.remove("displayNone")
             displayNone27_30.forEach(el => el.classList.add("displayNone"))
-
-        // inputs25_26(arrayOfActiveMarkers, currentTaskId)
+            break
+        case 4:
+            markDownAnswersP.classList.remove("displayNone")
+            markDownAnswersP.classList.add("displayNone")
+            lastTasksDescriptions.classList.remove("displayNone")
+            taskAnswerText.classList.add("displayNone")
+            taskAnswerMarkers.classList.add("displayNone")
+            break
     }
 }
 
@@ -289,7 +311,7 @@ greenButton.addEventListener('click', () => {
 // nextButton(redButton)
 
 function buttons(taskId, marker) {
-    if (marker[taskId -1]){ 
+    if (marker[taskId - 1]) {
         console.log(marker[taskId])
         greenButton.innerHTML = "Відповісти"
         redButton.innerHTML = "Завершити тест"
@@ -314,28 +336,45 @@ buttons(activeTask[0].id - 1, arrayOfActiveMarkers)
 endButton(redButton)
 
 function end() {
+    let finalCounter = 0
+    let buf = []
+    let buf1 = []
     for (let i = 0; i < 20; i++) {
         if (arrayOfActiveMarkers[i]) {
-            checkArrayfor1_20.push(arrayOfActiveMarkers[i].id)
-            // console.log(arrayOfActiveMarkers[i].id)
+
+            if (arrayOfActiveMarkers[i].id == ZNODATA[i].answer) {
+                checkArray.push(true)
+                finalCounter++
+            } else { 
+                checkArray.push(false) 
+            }
         } else {
-            console.log(undefined)
+            checkArray.push(false)
         }
     }
-    for (let i = 20; i < 25; i++) {
+    for (let i = 20; i < 24; i++) {
         if (arrayOfActiveMarkers[i]) {
-            for(let j = 0; j < 4; j++){
-                if(arrayOfActiveMarkers[i][j]){
-                    // console.log(arrayOfActiveMarkers[i][j].id)
-                    checkArrayfor1_20.push(arrayOfActiveMarkers[i].id)
-                }else{
-                    console.log(undefined)
+            buf = arrayOfActiveMarkers[i].map(el => el ? el.id : undefined)
+            for (let j = 0; j < buf.length; j++) {
+                if (buf[j] == ZNODATA[i].answer[j]) {
+                    buf1.push(true)
+                    finalCounter++
+                } else {
+                    buf1.push(false)
                 }
             }
-            //console.log(arrayOfActiveMarkers[i])
+            checkArray.push(buf1)
+
         } else {
-            console.log(undefined)
+            checkArray.push(false)
         }
     }
-    console.log(checkArrayfor1_20)
+    testBal.innerHTML = finalCounter
+    if(finalCounter > 10){
+        raitName.innerHTML = 100 + (finalCounter -10) * 3
+    }
+    resaultInfoShow.classList.remove("displayNone")
+    taskCard.classList.add("displayNone")
+    
+    console.log(checkArray)
 }

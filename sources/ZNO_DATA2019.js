@@ -1,99 +1,99 @@
-const ZNO2019 = [{
+const ZNODATA = [{
     id: 1,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17061/os-math-2019-01.png`,
-    answer: 1
+    answer: "a1"
 },{
     id: 2,
     task: `	https://zno.osvita.ua/doc/images/znotest/170/17062/os-math-2019-02.png`,
-    answer: 4
+    answer: "d1"
 },{
     id: 3,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17063/os-math-2019-03.png`,
-    answer: 5
+    answer: "e1"
 },{
     id: 4,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17064/os-math-2019-04.png`,
-    answer: 4
+    answer: "c1"
 },{
     id: 5,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17065/os-math-2019-05.png`,
-    answer: 1
+    answer: "a1"
 },{
     id: 6,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17066/os-math-2019-06.png`,
-    answer: 5
+    answer: "e1"
 },{
     id: 7,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17067/os-math-2019-07.png`,
-    answer: 2
+    answer: "b1"
 },{
     id: 8,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17068/os-math-2019-08.png`,
-    answer: 5
+    answer: "e1"
 },{
     id: 9,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17069/os-math-2019-09.png`,
-    answer: 1
+    answer: "a1"
 },{
     id: 10,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17070/os-math-2019-10.png`,
-    answer: 4
+    answer: "d1"
 },{
     id: 11,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17071/os-math-2019-11.png`,
-    answer: 3
+    answer: "c1"
 },{
     id: 12,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17072/os-math-2019-12.png`,
-    answer: 1
+    answer: "a1"
 },{
     id: 13,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17073/os-math-2019-13.png`,
-    answer: 3
+    answer: "c1"
 },{
     id: 14,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17074/os-math-2019-14.png`,
-    answer: 2
+    answer: "b1"
 },{
     id: 15,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17075/os-math-2019-15.png`,
-    answer: 5
+    answer: "e1"
 },{
     id: 16,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17076/os-math-2019-16.png`,
-    answer: 4
+    answer: "d1"
 },{
     id: 17,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17077/os-math-2019-17.png`,
-    answer: 1
+    answer: "a1"
 },{
     id: 18,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17078/os-math-2019-18.png`,
-    answer: 4
+    answer: "d1"
 },{
     id: 19,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17079/os-math-2019-19.png`,
-    answer: 2
+    answer: "b1"
 },{
     id: 20,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17080/os-math-2019-20.png`,
-    answer: 4
+    answer: "d1"
 },{
     id: 21,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17081/os-math-2019-21.png`,
-    answer: [4, 3, 5, 1]
+    answer: ["d1", "c2", "e3", "a4"]
 },{
     id: 22,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17082/os-math-2019-22.png`,
-    answer: [2, 5, 4, 1]
+    answer: ["b1", "e2", "d3", "a4"]
 },{
     id: 23,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17083/os-math-2019-23.png`,
-    answer: [2, 1, 4, 3]
+    answer: ["b1", "a2", "d3", "c4"]
 },{
     id: 24,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17084/os-math-2019-24.png`,
-    answer: [3, 2, 5, 1]
+    answer: ["c1", "b2", "d3", "4a"]
 },{
     id: 25,
     task: `https://zno.osvita.ua/doc/images/znotest/170/17085/os-math-2019-25.png`,
